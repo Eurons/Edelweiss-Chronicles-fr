@@ -91,17 +91,9 @@ namespace XVLauncher
 
             // Sets first image as source for bg
             bg.Source = Images[0];
-            BottomBarBg.ImageSource = Images[0];
-            TopBarBg.ImageSource = Images[0];
-
-            //Initializing Timer for slideshow
-            PictureTimer.Interval = TimeSpan.FromSeconds(10);
-            PictureTimer.Tick += Tick;
-            PictureTimer.Start();
 
             //Initializing the update timer
             UpdateTimer.Interval = TimeSpan.FromMilliseconds(10);
-            UpdateTimer.Tick += Update;
             UpdateTimer.Start();
 
             InitSaveButtons();
@@ -191,94 +183,7 @@ namespace XVLauncher
             }
         }
 
-        private void Update(object sender, System.EventArgs e)
-        {
-            BottomBarBg.ImageSource = bg.Source;
-            BottomBarBg.Opacity = bg.Opacity;
-            TopBarBg.ImageSource = bg.Source;
-            TopBarBg.Opacity = bg.Opacity;
-        }
-        /// <summary>
-        /// Tick on the dispatchtimer called every 10 seconds. Used to update background Images.
-        /// </summary>
-        private void Tick(object sender, System.EventArgs e)
-        {
-            ImageNumber = (ImageNumber + 1) % Images.Count;
-            DisplayNextImage(bg);
-        }
 
-        /// <summary>
-        /// Animation code for the image changing
-        /// </summary>
-        private void DisplayNextImage(Image img)
-        {
-            const double transition_time = 0.9;
-            Storyboard sb = new Storyboard();
-
-            // ***************************
-            // Animate Opacity 1.0 --> 0.0
-            // ***************************
-            DoubleAnimation fade_out = new DoubleAnimation(1.0, 0.0,
-                TimeSpan.FromSeconds(transition_time))
-            {
-                BeginTime = TimeSpan.FromSeconds(0)
-            };
-
-            // Use the Storyboard to set the target property.
-            Storyboard.SetTarget(fade_out, img);
-            Storyboard.SetTargetProperty(fade_out,
-                new PropertyPath(Image.OpacityProperty));
-
-            // Add the animation to the StoryBoard.
-            sb.Children.Add(fade_out);
-
-
-            // *********************************
-            // Animate displaying the new image.
-            // *********************************
-            ObjectAnimationUsingKeyFrames new_image_animation =
-                new ObjectAnimationUsingKeyFrames
-                {
-                    // Start after the first animation has finisheed.
-                    BeginTime = TimeSpan.FromSeconds(transition_time)
-                };
-
-            // Add a key frame to the animation.
-            // It should be at time 0 after the animation begins.
-            DiscreteObjectKeyFrame new_image_frame =
-                new DiscreteObjectKeyFrame(Images[ImageNumber], TimeSpan.Zero);
-            new_image_animation.KeyFrames.Add(new_image_frame);
-
-            // Use the Storyboard to set the target property.
-            Storyboard.SetTarget(new_image_animation, img);
-            Storyboard.SetTargetProperty(new_image_animation,
-                new PropertyPath(Image.SourceProperty));
-
-            // Add the animation to the StoryBoard.
-            sb.Children.Add(new_image_animation);
-
-
-            // ***************************
-            // Animate Opacity 0.0 --> 1.0
-            // ***************************
-            // Start when the first animation ends.
-            DoubleAnimation fade_in = new DoubleAnimation(0.0, 1.0,
-                TimeSpan.FromSeconds(transition_time))
-            {
-                BeginTime = TimeSpan.FromSeconds(transition_time)
-            };
-
-            // Use the Storyboard to set the target property.
-            Storyboard.SetTarget(fade_in, img);
-            Storyboard.SetTargetProperty(fade_in,
-                new PropertyPath(Image.OpacityProperty));
-
-            // Add the animation to the StoryBoard.
-            sb.Children.Add(fade_in);
-
-            // Start the storyboard on the img control.
-            sb.Begin(img);
-        }
 
         /// <summary>
         /// Start download. When it finishes, start unzipping.
@@ -440,7 +345,7 @@ namespace XVLauncher
             this.button.Click += LaunchGame;
             GradientStopCollection c = new GradientStopCollection
             {
-                new GradientStop(Color.FromArgb(255, 88, 139, 64), 0),
+                new GradientStop(Color.FromArgb(255, 88, 139, 64), 0)
                 new GradientStop(Color.FromArgb(255, 130, 183, 104), 0.3),
                 new GradientStop(Color.FromArgb(255, 130, 183, 104), 0.7),
                 new GradientStop(Color.FromArgb(255, 88, 139, 64), 1.0)
@@ -599,6 +504,10 @@ namespace XVLauncher
                 element.RemoveHandler(routedEvent, routedEventHandler.Handler);
         }
 
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {

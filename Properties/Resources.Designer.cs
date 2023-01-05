@@ -106,7 +106,7 @@ namespace XVLauncher.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Test.exe.
+        ///   Recherche une chaîne localisée semblable à Game.bat.
         /// </summary>
         internal static string Executable {
             get {
