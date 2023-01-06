@@ -115,10 +115,7 @@ namespace XVLauncher
 
                     GradientStopCollection c = new GradientStopCollection
                     {
-                        new GradientStop(Color.FromArgb(255, 27, 134, 255), 0),
-                        new GradientStop(Color.FromArgb(255, 55, 170, 255), 0.3),
-                        new GradientStop(Color.FromArgb(255, 55, 170, 255), 0.7),
-                        new GradientStop(Color.FromArgb(255, 27, 134, 255), 1.0)
+                        new GradientStop(Color.FromArgb(0, 0, 0, 255), 0)
                     };
                     LinearGradientBrush b = new LinearGradientBrush(c)
                     {
@@ -157,10 +154,7 @@ namespace XVLauncher
                 this.infoLabel.Content = "";
                 GradientStopCollection c = new GradientStopCollection
                     {
-                        new GradientStop(Color.FromArgb(255, 27, 134, 255), 0),
-                        new GradientStop(Color.FromArgb(255, 55, 170, 255), 0.3),
-                        new GradientStop(Color.FromArgb(255, 55, 170, 255), 0.7),
-                        new GradientStop(Color.FromArgb(255, 27, 134, 255), 1.0)
+                        new GradientStop(Color.FromArgb(0, 0, 0, 255), 0)
                     };
                 LinearGradientBrush b = new LinearGradientBrush(c)
                 {
@@ -345,10 +339,7 @@ namespace XVLauncher
             this.button.Click += LaunchGame;
             GradientStopCollection c = new GradientStopCollection
             {
-                new GradientStop(Color.FromArgb(255, 88, 139, 64), 0)
-                new GradientStop(Color.FromArgb(255, 130, 183, 104), 0.3),
-                new GradientStop(Color.FromArgb(255, 130, 183, 104), 0.7),
-                new GradientStop(Color.FromArgb(255, 88, 139, 64), 1.0)
+                new GradientStop(Color.FromArgb(0, 0, 0, 255), 0)
             };
             LinearGradientBrush b = new LinearGradientBrush(c)
             {

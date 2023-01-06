@@ -110,7 +110,7 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Image x:Name="bg" Stretch="UniformToFill" Source="Resources/s1.png" Margin="0,-39,0,-17" HorizontalAlignment="Left" Width="1096" Grid.ColumnSpan="2"/>
-        <Button x:Name="button" Content="{x:Static language:Lang.download}" Height="41" Margin="0,0,708,7" Width="140" FontSize="21" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" Foreground="White" Click="button_Click">
+        <Button x:Name="button" Content="{x:Static language:Lang.download}" Height="35" Margin="0,0,0,27" Width="129" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" Foreground="White" Click="button_Click" Grid.ColumnSpan="2">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Border x:Name="border" CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
@@ -132,7 +132,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Grid x:Name="BarGrid" Margin="-39,-28,-187,-221" Grid.ColumnSpan="4">
+        <Grid x:Name="BarGrid" Margin="571,26,-55,-36" Grid.ColumnSpan="4">
             <ProgressBar HorizontalAlignment="Left" Height="1" VerticalAlignment="Top" Width="515" Margin="42,522,0,0" Value="0" BorderBrush="#FFEAE3E3" Foreground="#FF52CD19" />
             <ProgressBar HorizontalAlignment="Left" Height="1" VerticalAlignment="Top" Width="515" Margin="43,521,0,0" Value="0" BorderBrush="#FFEAE3E3" Foreground="#FF52CD19" />
             <ProgressBar HorizontalAlignment="Left" Height="1" VerticalAlignment="Top" Width="515" Margin="44,520,0,0" Value="0" BorderBrush="#FFEAE3E3" Foreground="#FF52CD19" />
@@ -151,7 +151,7 @@
             <ProgressBar HorizontalAlignment="Left" Height="1" VerticalAlignment="Top" Width="515" Margin="57,507,0,0" Value="0" BorderBrush="#FFEAE3E3" Foreground="#FF52CD19" />
         </Grid>
         <Label x:Name="windowName" Content="Edelweiss Chronicles" Margin="-1,-31,654,0" VerticalAlignment="Top" FontFamily="Barlow Condensed Medium" FontSize="20" Foreground="White" MouseDown="MoveWindow" Height="40"/>
-        <Label x:Name="infoLabel" Content="Info label (Here goes speed, status and any &#xD;&#xA;info available)" Margin="10,106,486,86" FontFamily="Barlow Condensed" FontSize="21" Foreground="White"/>
+        <Label x:Name="infoLabel" Content="Info label (Here goes speed, status and any &#xD;&#xA;info available)" Margin="624,109,10,83" FontFamily="Barlow Condensed" FontSize="21" Foreground="White" Grid.ColumnSpan="2"/>
         <Border x:Name="optionWindow" Margin="0,42,0,0" Background="#FF23272B" Visibility="Hidden" Grid.ColumnSpan="2">
             <Grid>
                 <Grid Margin="32,224,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
